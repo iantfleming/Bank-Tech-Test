@@ -38,5 +38,11 @@ describe Account do
       subject.withdraw(5)
       expect(subject.balance).to eq 15
     end
+
+    it "raises an error when balance goes below #{Account::BALANCE_MIN}" do
+      message = "Balance cannot fall below #{Account::BALANCE_MIN}"
+      subject.deposit(5)
+      expect { subject.withdraw(6) }.to raise_error message
+    end
   end
 end
