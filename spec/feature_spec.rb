@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
 require './lib/account'
-require './lib/statement'
+require './lib/transaction_record'
