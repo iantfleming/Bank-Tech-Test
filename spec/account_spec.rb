@@ -3,7 +3,7 @@
 require 'account'
 
 describe Account do
-  it 'can create and instance of account' do
+  it 'can create an instance of account' do
     expect(subject).to be_kind_of(Account)
   end
 
@@ -26,9 +26,15 @@ describe Account do
   end
 
   describe '#deposit' do
-    it 'adds a deposit to the current balance' do
+    it 'deposits 20 to the current balance' do
       subject.deposit(20)
       expect(subject.balance).to eq 20
+    end
+
+    it 'accepts multiple individual deposits' do
+      subject.deposit(40)
+      subject.deposit(20)
+      expect(subject.balance).to eq 60
     end
   end
 
@@ -37,6 +43,13 @@ describe Account do
       subject.deposit(20)
       subject.withdraw(5)
       expect(subject.balance).to eq 15
+    end
+
+    it 'accepts multiple individual withdrawals' do
+      subject.deposit(20)
+      subject.withdraw(5)
+      subject.withdraw(6)
+      expect(subject.balance).to eq 9
     end
 
     it "raises an error when balance goes below #{Account::BALANCE_MIN}" do

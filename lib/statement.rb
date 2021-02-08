@@ -1,3 +1,4 @@
-class Statement
+# frozen_string_literal: true
 
+class Statement
 end
