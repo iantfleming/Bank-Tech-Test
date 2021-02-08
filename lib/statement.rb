@@ -2,10 +2,14 @@
 
 class Statement
   def initialize
-    @statement = []
+    @bank_statement = []
+  end
+
+  def record_transaction(balance)
+    @bank_statement << balance
   end
 
   def display
-    @statement
+    @bank_statement
   end
 end
