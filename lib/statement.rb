@@ -5,8 +5,8 @@ class Statement
     @bank_statement = []
   end
 
-  def record_transaction(balance)
-    @bank_statement << balance
+  def record_transaction(date = Time.new.strftime('%Y-%m-%d'), withdrawal, deposit, balance)
+    @bank_statement << { date: date, withdrawal: withdrawal, deposit: deposit, balance: balance }
   end
 
   def display
