@@ -19,6 +19,11 @@ describe Account do
     expect(subject).to respond_to(:withdraw).with(1).argument
   end
 
+  describe '#initialize' do
+    it 'initializes with an empty bank balance' do
+      expect(subject.balance).to eq 0
+    end
+
   describe '#balance' do
     it 'gives a default balance of 0' do
       expect(subject.balance).to eq 0
