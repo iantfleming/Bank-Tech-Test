@@ -12,7 +12,7 @@ class TransactionRecord
   end
 
   def display
-    @statement.map {|x| x.values}
+    @statement.map {|x| x.values}.join(', ')
   end
 
   private

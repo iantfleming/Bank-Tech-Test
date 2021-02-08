@@ -24,8 +24,7 @@ describe TransactionRecord do
   describe '#add_transaction' do
     it 'records a customer transaction' do
       transaction_record.add_transaction(date, withdrawal, deposit, balance)
-      expect(transaction_record.display).to eq [{ date: date, withdrawal: withdrawal, deposit: deposit,
-                                                  balance: balance }]
+      expect(transaction_record.display).to eq [date, withdrawal, deposit, balance].join(", ")
     end
   end
 end
