@@ -8,11 +8,11 @@ class TransactionRecord
   end
 
   def add_transaction(date = Time.new.strftime('%Y-%m-%d'), withdrawal, deposit, balance)
-    statement << { date: date, withdrawal: withdrawal, deposit: deposit, balance: balance }
+    p @statement << { date: date, withdrawal: withdrawal, deposit: deposit, balance: balance }
   end
 
   def display
-    @statement
+    @statement.map {|x| x.values}
   end
 
   private
