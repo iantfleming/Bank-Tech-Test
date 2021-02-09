@@ -3,6 +3,14 @@
 require 'account'
 
 describe Account do
+
+  subject(:account) {Account.new}
+
+  let(:credit) {1000}
+  let(:debit) {200}
+  let(:balance) {1000}
+
+
   it 'responds to the method balance' do
     expect(subject).to respond_to(:balance)
   end
@@ -15,7 +23,7 @@ describe Account do
     expect(subject).to respond_to(:debit).with(1).argument
   end
 
-  describe '#initialize' do
+  describe 'initialization' do
     it 'initializes with an empty bank balance' do
       expect(subject.balance).to eq 0
     end
@@ -28,36 +36,36 @@ describe Account do
 
     describe '#credit' do
       it 'credits 20 to the current balance' do
-        subject.credit(20)
-        expect(subject.balance).to eq 20
+        subject.credit(credit)
+        expect(subject.balance).to eq credit
       end
 
       it 'accepts multiple individual credits' do
-        subject.credit(40)
-        subject.credit(20)
-        expect(subject.balance).to eq 60
+        subject.credit(credit)
+        subject.credit(credit)
+        expect(subject.balance).to eq credit + credit
       end
     end
 
     describe '#debit' do
       it 'subtracts a credit from the current balance' do
-        subject.credit(20)
-        subject.debit(5)
-        expect(subject.balance).to eq 15
+        subject.credit(credit)
+        subject.debit(debit)
+        expect(subject.balance).to eq credit - debit
       end
 
-      it 'accepts multiple individual debitals' do
-        subject.credit(20)
-        subject.debit(5)
-        subject.debit(6)
-        expect(subject.balance).to eq 9
+      it 'accepts multiple individual debits' do
+        subject.credit(credit)
+        subject.debit(debit)
+        subject.debit(debit)
+        expect(subject.balance).to eq credit - debit * 2
       end
     end
 
     it "raises an error when balance goes below #{Account::BALANCE_MIN}" do
       message = "Balance cannot fall below #{Account::BALANCE_MIN}"
-      subject.credit(5)
-      expect { subject.debit(6) }.to raise_error message
+      subject.credit(credit)
+      expect { subject.debit(debit * 10) }.to raise_error message
     end
   end
 end

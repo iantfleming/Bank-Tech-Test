@@ -2,4 +2,3 @@
 
 require './lib/account'
 require './lib/transaction'
-require './lib/statement'
