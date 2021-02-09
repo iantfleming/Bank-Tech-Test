@@ -69,7 +69,7 @@ To use the program:
 ```
 ## Run irb:
 ```
-##Program Example
+## Program Example
 ```
 2.7.0 :001 > require './spec/feature_spec.rb'
  => true
