@@ -7,12 +7,12 @@ describe Account do
     expect(subject).to respond_to(:balance)
   end
 
-  it 'responds to the method deposit' do
-    expect(subject).to respond_to(:deposit).with(1).argument
+  it 'responds to the method credit' do
+    expect(subject).to respond_to(:credit).with(1).argument
   end
 
-  it 'responds to the method withdraw' do
-    expect(subject).to respond_to(:withdraw).with(1).argument
+  it 'responds to the method debit' do
+    expect(subject).to respond_to(:debit).with(1).argument
   end
 
   describe '#initialize' do
@@ -26,38 +26,38 @@ describe Account do
       end
     end
 
-    describe '#deposit' do
-      it 'deposits 20 to the current balance' do
-        subject.deposit(20)
+    describe '#credit' do
+      it 'credits 20 to the current balance' do
+        subject.credit(20)
         expect(subject.balance).to eq 20
       end
 
-      it 'accepts multiple individual deposits' do
-        subject.deposit(40)
-        subject.deposit(20)
+      it 'accepts multiple individual credits' do
+        subject.credit(40)
+        subject.credit(20)
         expect(subject.balance).to eq 60
       end
     end
 
-    describe '#withdraw' do
-      it 'subtracts a deposit from the current balance' do
-        subject.deposit(20)
-        subject.withdraw(5)
+    describe '#debit' do
+      it 'subtracts a credit from the current balance' do
+        subject.credit(20)
+        subject.debit(5)
         expect(subject.balance).to eq 15
       end
 
-      it 'accepts multiple individual withdrawals' do
-        subject.deposit(20)
-        subject.withdraw(5)
-        subject.withdraw(6)
+      it 'accepts multiple individual debitals' do
+        subject.credit(20)
+        subject.debit(5)
+        subject.debit(6)
         expect(subject.balance).to eq 9
       end
     end
 
     it "raises an error when balance goes below #{Account::BALANCE_MIN}" do
       message = "Balance cannot fall below #{Account::BALANCE_MIN}"
-      subject.deposit(5)
-      expect { subject.withdraw(6) }.to raise_error message
+      subject.credit(5)
+      expect { subject.debit(6) }.to raise_error message
     end
   end
 end

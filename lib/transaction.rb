@@ -4,12 +4,12 @@ class Transaction
 
   DATE_FORMAT = '%d/%m/%Y'
 
-  attr_reader :date, :deposit, :withdraw, :balance
+  attr_reader :date, :credit, :debit, :balance
 
-  def initialize(deposit, withdraw, balance)
+  def initialize(credit, debit, balance)
     @date = Time.new.strftime(DATE_FORMAT)
-    @deposit = deposit
-    @withdraw = withdraw
+    @credit = credit
+    @debit = debit
     @balance = balance
   end
 end

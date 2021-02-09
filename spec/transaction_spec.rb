@@ -14,11 +14,11 @@ describe Transaction do
       expect(transaction.date).to eq(Time.new.strftime(Transaction::DATE_FORMAT))
     end
 
-    it "is created with an accessible deposit attribute" do
-      expect(transaction.deposit).to eq(1000)
+    it "is created with an accessible credit attribute" do
+      expect(transaction.credit).to eq(1000)
     end
-    it "is created with an accessible withdraw attribute" do
-      expect(transaction.withdraw).to eq(200)
+    it "is created with an accessible debit attribute" do
+      expect(transaction.debit).to eq(200)
     end
     it "is created with an accessible balance attribute" do
       expect(transaction.balance).to eq(800)

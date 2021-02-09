@@ -15,19 +15,19 @@ class Account
     @transactions = []
   end
 
-  def deposit(amount)
+  def credit(amount)
     @transactions << Transaction.new(amount, 0, balance + amount)
     @balance += amount
   end
 
-  def withdraw(amount)
-    raise "Balance cannot fall below #{Account::BALANCE_MIN}" if withdraw_over_limit?(amount)
+  def debit(amount)
+    raise "Balance cannot fall below #{Account::BALANCE_MIN}" if debit_over_limit?(amount)
 
     @transactions << Transaction.new(0, amount, balance - amount)
     @balance -= amount
   end
 
-  def withdraw_over_limit?(amount)
+  def debit_over_limit?(amount)
     @balance < amount
   end
 

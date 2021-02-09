@@ -10,7 +10,7 @@
 #   end
 #
 #   def display
-#     puts "   Date    ||  Withdrawals  ||  Deposits  ||  Balance"
+#     puts "   Date    ||  debitals  ||  credits  ||  Balance"
 #     puts @print
 #
 #     # string = ''
@@ -18,16 +18,16 @@
 #     # @print.each do |element|
 #     #   string += element[:date].to_s + " ||"
 #     #
-#     #   if element[:withdrawals] == 0
+#     #   if element[:debitals] == 0
 #     #     string += "               ||"
 #     #   else
-#     #     string += "£" + element[:withdrawals].to_s + " ||"
+#     #     string += "£" + element[:debitals].to_s + " ||"
 #     #   end
 #     #
-#     #   if element[:deposits] == 0
+#     #   if element[:credits] == 0
 #     #     string += "            ||"
 #     #   else
-#     #     string += "    £" + element[:deposits].to_s + "   ||"
+#     #     string += "    £" + element[:credits].to_s + "   ||"
 #     #   end
 #     #
 #     #   string += " £" + element[:balance].to_s + "/"
