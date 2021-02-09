@@ -1,9 +1,5 @@
 ## Bank-Tech-Test
 
-## Build status
-
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
-
 ## Code style
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
@@ -34,6 +30,7 @@ date || credit || debit || balance
 ```
 
 ## User Stories
+The following user stories were used to complete specification
 ```
 As a client,
 so that I can use the services provided by the bank,
@@ -50,4 +47,48 @@ I would like to be able to withdraw money from my account.
 As a client,
 so that I can keep track of my money,
 I would like to be able to view a bank statement.
+```
+
+## Installation
+To install the program do the following:
+```
+- Clone this repo
+- Run cd bank_tech_test
+- Run bundle install
+```
+
+## Run tests
+
+To run the tests do:
+```
+- Run rspec
+```
+## Use program
+
+To use the program:
+```
+## Run irb:
+```
+##Program Example
+```
+2.7.0 :001 > require './spec/feature_spec.rb'
+ => true
+2.7.0 :002 > a = Account.new
+ => #<Account:0x00007f8acab298a8 @balance=0, @balance_min=0, @transactions=[]>
+2.7.0 :003 > t  = Transaction.new(0, 0, 0)
+ => #<Transaction:0x00007f8acabcaaa0 @date="09/02/21", @credit=0, @debit=0, @balance=0>
+2.7.0 :004 > a.deposit(1000)
+ => 1000
+2.7.0 :005 > a.deposit(2000)
+ => 3000
+2.7.0 :006 > a.withdraw(500)
+ => 2500
+2.7.0 :007 > a.print_table
+
++----------+--------+-------+---------+
+| Date     | Credit | Debit | Balance |
+| 09/02/21 | 1000   | 0     | 1000    |
+| 09/02/21 | 2000   | 0     | 3000    |
+| 09/02/21 | 0      | 500   | 2500    |
++----------+--------+-------+---------+
 ```
