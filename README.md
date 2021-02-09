@@ -14,6 +14,7 @@ If you're using any code style like xo, standard etc. That will help others whil
 
 
 ## User Stories
+```
 As a client,
 so that I can use the services provided by the bank,
 I want to be able to have a bank account.
@@ -29,3 +30,4 @@ I would like to be able to withdraw money from my account.
 As a client,
 so that I can keep track of my money,
 I would like to be able to view a bank statement.
+```
