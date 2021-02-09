@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+require 'terminal-table'
 require_relative 'transaction'
 
 class Account
-  attr_reader :balance, :transactions
+  attr_accessor :balance, :transactions
 
   BALANCE_MIN = 0
   INITIAL_BALANCE = 0
+  STATEMENT_TITLES = %w[Date Credit Debit Balance].freeze
 
   def initialize
     @balance = INITIAL_BALANCE
@@ -30,7 +32,24 @@ class Account
     @balance < amount
   end
 
-  def display
-    p @transactions
+  def print_table
+    rows = generate_table(transactions)
+    access_table(rows)
+    rows
+  end
+
+  private
+
+  def generate_table(transactions)
+    rows = [STATEMENT_TITLES]
+    transactions.each do |transaction|
+      rows << [transaction.date, transaction.credit, transaction.debit, transaction.balance]
+    end
+    rows
+  end
+
+  def access_table(rows)
+    table = Terminal::Table.new rows: rows
+    puts table
   end
 end
