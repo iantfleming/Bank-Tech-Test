@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Transaction
-
   DATE_FORMAT = '%d/%m/%Y'
 
   attr_reader :date, :credit, :debit, :balance
