@@ -3,11 +3,6 @@
 require 'account'
 
 describe Account do
-  it 'can create an instance of account' do
-    account = Account.new
-    expect(subject).to be_kind_of(Account)
-  end
-
   it 'responds to the method balance' do
     expect(subject).to respond_to(:balance)
   end
