@@ -1,5 +1,11 @@
 # Bank-Tech-Test
 
+## Build status
+Build status of continus integration i.e. travis, appveyor etc. Ex. -
+
+[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
+
 
 As a client,
 so that I can use the services provided by the bank,
