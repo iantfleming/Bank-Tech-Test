@@ -6,7 +6,7 @@ describe TransactionRecord do
   subject(:transaction_record) { described_class.new }
 
   let(:date) { Time.new.strftime('%Y-%m-%d') }
-  let(:withdrawal) { 0 }
+  let(:withdraw) { 0 }
   let(:deposit) { 1000 }
   let(:balance) { 1000 }
 
@@ -23,8 +23,8 @@ describe TransactionRecord do
 
   describe '#add_transaction' do
     it 'records a customer transaction' do
-      transaction_record.add_transaction(date, withdrawal, deposit, balance)
-      expect(transaction_record.display).to eq [date, withdrawal, deposit, balance].join(", ")
+      transaction_record.add_transaction(date, withdraw, deposit, balance)
+      expect(transaction_record.display).to eq [date, withdraw, deposit, balance].join(", ")
     end
   end
 end
