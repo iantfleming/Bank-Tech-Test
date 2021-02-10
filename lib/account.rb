@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+
 require 'terminal-table'
 require_relative 'transaction'
-
 class Account
   attr_accessor :balance, :transactions
 
@@ -32,24 +32,45 @@ class Account
     @balance < amount
   end
 
+  # def print_table
+  #   rows = generate_table(transactions)
+  #   access_table(rows)
+  #   rows
+  # end
+
   def print_table
-    rows = generate_table(transactions)
-    access_table(rows)
-    rows
+    generate_table(transactions)
   end
 
   private
 
   def generate_table(transactions)
-    rows = [STATEMENT_TITLES]
+    puts 'date     || credit  || debit  || balance '
     transactions.each do |transaction|
-      rows << [transaction.date, transaction.credit, transaction.debit, transaction.balance]
+      print "#{transaction.date} ||"
+      print "     "
+      print "#{transaction.credit.to_f}0 ||"
+      print "      "
+      print "#{transaction.debit.to_f}0 ||"
+      print "  "
+      print "#{transaction.balance.to_f}0"
+      puts ''
+      # print "%.2f#{transaction.balance}0"
     end
-    rows
   end
 
-  def access_table(rows)
-    table = Terminal::Table.new rows: rows
-    puts table
-  end
+
+#   def generate_table(transactions)
+#     rows = [STATEMENT_TITLES]
+#     transactions.each do |transaction|
+#       rows << [transaction.date, transaction.credit, transaction.debit, transaction.balance]
+#     end
+#     rows
+#   end
+
+#
+#   def access_table(rows)
+#     table = Terminal::Table.new rows: rows
+#     puts table
+#   end
 end
