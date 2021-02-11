@@ -59,15 +59,16 @@ To install the program do the following:
 
 ## Run tests
 
-To run the tests do:
+To run the tests run:
 ```
-- Run rspec
+rspec
+
 ```
 ## Use program
 
-To use the program:
+To use the program run:
 ```
-## Run irb:
+irb
 ```
 ## Program Example
 ```
