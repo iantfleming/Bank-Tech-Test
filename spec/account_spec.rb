@@ -5,7 +5,7 @@ require 'account'
 describe Account do
   subject(:account) { Account.new }
 
-  # let(:date) { '11/02/21' }
+  DATE_FORMAT = '%d/%m/%y'
   let(:credit) { 1000 }
   let(:debit) { 200 }
   let(:balance) { 1000 }
@@ -71,20 +71,10 @@ describe Account do
   describe '#print_table' do
     it 'prints the date, credit, debit and balance' do
       subject.deposit(credit)
-      expect(subject.print_table).to eq """
-        'date || credit || debit || balance' +
-      """
+      expect(subject.print_table).to eq([
+        Account::STATEMENT_TITLES,
+        [Time.new.strftime(DATE_FORMAT), 1000, 0, 1000]
+      ])
     end
   end
-
 end
-
-
-# '\n' +
-# `${account.getDate()} || 40.00 || || 40.00` +
-# '\n' +
-# `${account.getDate()} || || 20.00 || 20.00` +
-# '\n' +
-# `${account.getDate()} || || 10.00 || 10.00` +
-# '\n' +
-# `${account.getDate()} || 5.99 || || 15.99`,
