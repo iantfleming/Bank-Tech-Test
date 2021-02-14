@@ -68,10 +68,10 @@ describe Account do
     end
   end
 
-  describe '#print_table' do
+  describe '#print_statement' do
     it 'prints the date, credit, debit and balance' do
       subject.deposit(credit)
-      expect(subject.print_table).to eq([
+      expect(subject.print_statement).to eq([
         Account::STATEMENT_TITLES,
         [Time.new.strftime(DATE_FORMAT), 1000, 0, 1000]
       ])

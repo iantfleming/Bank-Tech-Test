@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'terminal-table'
-require_relative 'transaction'
 class Account
   attr_accessor :balance, :transactions
 
@@ -31,29 +30,8 @@ class Account
     @balance < amount
   end
 
-  def print_table
-    rows = generate_table(transactions)
-    access_table(rows)
-    rows
-  end
-
-  private
-
-  def generate_table(transactions)
-    rows = [STATEMENT_TITLES]
-    transactions.each do |transaction|
-      rows << [transaction.date, transaction.credit, transaction.debit, transaction.balance]
-    end
-    rows
-  end
-
-  def access_table(rows)
-    Terminal::Table.new rows: rows
+  def print_statement
+    statement = Statement.new(@transactions)
+    statement.print
   end
 end
-
-# require './spec/feature_spec.rb'
-# a = Account.new
-# t = Transaction.new(0, 0, 0)
-# a.deposit(4000)
-# a.print_table

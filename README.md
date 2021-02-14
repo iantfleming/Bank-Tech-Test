@@ -23,10 +23,11 @@
 **Then** she would see
 
 ```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
++----------+--------+-------+---------+
+| Date     | Credit | Debit | Balance |
+| 14/02/21 | 1000   | 0     | 1000    |
+| 14/02/21 | 0      | 200   | 800     |
++----------+--------+-------+---------+
 ```
 
 ## User Stories
@@ -76,15 +77,13 @@ irb
  => true
 2.7.0 :002 > a = Account.new
  => #<Account:0x00007f8acab298a8 @balance=0, @balance_min=0, @transactions=[]>
-2.7.0 :003 > t  = Transaction.new(0, 0, 0)
- => #<Transaction:0x00007f8acabcaaa0 @date="09/02/21", @credit=0, @debit=0, @balance=0>
-2.7.0 :004 > a.deposit(1000)
+2.7.0 :003 > a.deposit(1000)
  => 1000
-2.7.0 :005 > a.deposit(2000)
+2.7.0 :004 > a.deposit(2000)
  => 3000
-2.7.0 :006 > a.withdraw(500)
+2.7.0 :005 > a.withdraw(500)
  => 2500
-2.7.0 :007 > a.print_table
+2.7.0 :006 > a.print_statement
 
 +----------+--------+-------+---------+
 | Date     | Credit | Debit | Balance |
