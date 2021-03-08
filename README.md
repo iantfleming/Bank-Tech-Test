@@ -61,10 +61,9 @@ To install the program do the following:
 
 ## Run tests
 
-To run the tests run:
+To perform tests run:
 ```
 rspec
-
 ```
 ## Use program
 
